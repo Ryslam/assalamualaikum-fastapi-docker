@@ -1,6 +1,10 @@
 services:
   web:
     build: .
-    command: sh -c "uvicorn main:app --reload --port 8000 --host 0.0.0.0"
+    image: ryslam/quest-assalamualaikum-fastapi-docker:latest
+    container_name: quest-assalamualaikum-fastapi-docker
+    command: [ "uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000" ]
+    volumes:
+      - .:/app
     ports:
-      - 8000:8000
+      - "8000:8000"
